@@ -101,3 +101,24 @@ setTimeout(function() {
 setTimeout(function() {
     console.log("This is another anonymous function.");
 })
+
+// setintervalexamkple
+let count = 0;  
+const intervalId = setInterval(() => {
+  count++;
+  console.log("Count:", count);     
+    if (count >= 5) {
+    clearInterval(intervalId); // Stop the interval after 5 counts
+  } 
+}, 1000);
+
+// parseInt example and what do you mean by radix in parseInt function?
+// answer:
+// The parseInt() function in JavaScript is used to convert a string into an integer. It takes two arguments: the first is the string to be converted, and the second (optional) is the radix (base) of the numeral system to be used for the conversion. The radix can be any integer between 2 and 36. If the radix is not provided, it defaults to 10 (decimal) unless the string starts with "0x" or "0X", in which case it is treated as hexadecimal (base 16).
+const str = "42px";
+const num = parseInt(str, 10); // The second argument is the radix (base)
+console.log("Parsed integer:", num); // Output: Parsed integer: 42  
+// parseFloat example
+const floatStr = "3.14abc";
+const floatNum = parseFloat(floatStr);
+console.log("Parsed float:", floatNum); // Output: Parsed float: 3.14
