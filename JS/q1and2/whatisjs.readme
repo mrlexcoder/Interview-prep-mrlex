@@ -1,0 +1,97 @@
+What is JavaScript (JS)?
+
+JavaScript is a programming language used to make websites interactive
+(buttons, forms, API calls, animations, etc.).
+
+Is JavaScript single-threaded or multi-threaded?
+
+👉 JavaScript is SINGLE-THREADED
+
+That means:
+
+One thread
+
+One call stack
+
+One task runs at a time
+
+What is Single Thread?
+
+Single thread = one worker
+
+Example:
+
+Do task A
+
+Finish task A
+
+Then do task B
+
+What is Multi Thread?
+
+Multi thread = many workers
+
+Example:
+
+Task A and Task B run at the same time
+
+Used in:
+
+Java
+
+C++
+
+Operating systems
+
+Why JavaScript is single-threaded? (VERY IMPORTANT)
+
+JavaScript works with the DOM (web page UI).
+
+If multiple threads changed the page at the same time:
+
+Data conflict
+
+UI bugs
+
+Page crash
+
+👉 To keep things simple and safe, JS is single-threaded.
+
+Then how does JS handle multiple tasks?
+
+Using asynchronous behavior, not real multi-threading.
+
+Example:
+
+setTimeout(() => {
+  console.log("Hi");
+}, 1000);
+
+console.log("Hello");
+
+
+Output:
+
+Hello
+Hi
+
+
+JS does not wait — it continues.
+
+How can JS do “multi-thread” work?
+
+Not directly, but by using helpers:
+
+Browser
+
+Web Workers → background threads
+
+Node.js
+
+Worker Threads → real threads
+
+JS sends work → worker thread → gets result back.
+
+Simple interview answer (perfect) 🔥
+
+JavaScript is a single-threaded language, meaning it executes one task at a time. It is single-threaded to safely handle the DOM. However, it can perform multi-thread-like work using Web Workers in browsers and Worker Threads in Node.js.
