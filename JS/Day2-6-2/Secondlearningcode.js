@@ -48,3 +48,35 @@ console.log("Numbers array after pop:", numbers);
 // Web Workers in JavaScript allow you to run scripts in the background, separate from the main execution thread of a web application. This helps to improve performance and responsiveness by offloading heavy computations or tasks to a separate thread. Here's a basic example of how to use Web Workers:
 // main.js
 // Create a new Web Worker  
+
+
+// learns loops in JavaScript
+for (let i = 1; i <= 5; i++) {
+  console.log("Loop iteration:", i);
+}
+// make the patterns in js 
+
+let n = 5;
+
+for (let i=1;i<=n;i++){
+    let row = "1";
+    for (let j=1;j<=i;j++){
+        row += "* ";
+    }
+    console.log(row);
+}
+// How this works 
+// The outer loop (i) runs from 1 to n (5 in this case), controlling the number of rows.
+// The inner loop (j) runs from 1 to i, controlling the number of asterisks printed in each row.
+// In each iteration of the inner loop, an asterisk followed by a space ("* ") is appended to the row string.
+// After the inner loop completes for a particular row, the constructed row string is logged to the console.
+// This results in a right-angled triangle pattern of asterisks being printed to the console.
+
+// give me with number wise like what done by one then nested one 
+for (let i = 1; i <= 5; i++) {
+  let row = ""; 
+    for (let j = 1; j <= i; j++) {
+        row += j + " "; 
+    }
+    console.log(row); 
+}
