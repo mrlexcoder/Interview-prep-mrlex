@@ -131,3 +131,229 @@ const flatMapped = [1, 2, 3].flatMap(x => [x, x * 2]);
 console.log("flatMap:", flatMapped);
 
 console.log("\n=== INTERVIEW QUESTIONS ===\n");
+
+// Q1: Remove duplicates from array
+console.log("Q1: Remove Duplicates");
+const duplicates = [1, 2, 2, 3, 4, 4, 5];
+const unique = [...new Set(duplicates)];
+console.log("Input:", duplicates);
+console.log("Output:", unique);
+
+// Q2: Find second largest number
+console.log("\nQ2: Second Largest Number");
+function secondLargest(arr) {
+    const sorted = [...new Set(arr)].sort((a, b) => b - a);
+    return sorted[1];
+}
+const nums1 = [10, 5, 20, 8, 20];
+console.log("Input:", nums1);
+console.log("Second Largest:", secondLargest(nums1));
+
+// Q3: Rotate array by k positions
+console.log("\nQ3: Rotate Array");
+function rotateArray(arr, k) {
+    k = k % arr.length;
+    return [...arr.slice(-k), ...arr.slice(0, -k)];
+}
+const rotateInput = [1, 2, 3, 4, 5];
+console.log("Input:", rotateInput);
+console.log("Rotated by 2:", rotateArray(rotateInput, 2));
+
+// Q4: Find missing number in sequence
+console.log("\nQ4: Find Missing Number");
+function findMissing(arr) {
+    const n = arr.length + 1;
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((a, b) => a + b, 0);
+    return expectedSum - actualSum;
+}
+const sequence = [1, 2, 4, 5, 6];
+console.log("Input:", sequence);
+console.log("Missing Number:", findMissing(sequence));
+
+// Q5: Merge two sorted arrays
+console.log("\nQ5: Merge Sorted Arrays");
+function mergeSorted(arr1, arr2) {
+    return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+const sorted1 = [1, 3, 5];
+const sorted2 = [2, 4, 6];
+console.log("Array 1:", sorted1);
+console.log("Array 2:", sorted2);
+console.log("Merged:", mergeSorted(sorted1, sorted2));
+
+// Q6: Find intersection of two arrays
+console.log("\nQ6: Array Intersection");
+function intersection(arr1, arr2) {
+    return arr1.filter(x => arr2.includes(x));
+}
+const a1 = [1, 2, 3, 4];
+const a2 = [3, 4, 5, 6];
+console.log("Array 1:", a1);
+console.log("Array 2:", a2);
+console.log("Intersection:", intersection(a1, a2));
+
+// Q7: Chunk array into smaller arrays
+console.log("\nQ7: Chunk Array");
+function chunkArray(arr, size) {
+    const result = [];
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+}
+const toChunk = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log("Input:", toChunk);
+console.log("Chunked by 3:", chunkArray(toChunk, 3));
+
+// Q8: Flatten nested array (without flat())
+console.log("\nQ8: Flatten Array (Manual)");
+function flattenArray(arr) {
+    return arr.reduce((acc, val) => 
+        Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val), []
+    );
+}
+const deepNested = [1, [2, [3, [4]], 5]];
+console.log("Input:", deepNested);
+console.log("Flattened:", flattenArray(deepNested));
+
+// Q9: Find pairs that sum to target
+console.log("\nQ9: Find Pairs with Target Sum");
+function findPairs(arr, target) {
+    const pairs = [];
+    const seen = new Set();
+    for (let num of arr) {
+        const complement = target - num;
+        if (seen.has(complement)) {
+            pairs.push([complement, num]);
+        }
+        seen.add(num);
+    }
+    return pairs;
+}
+const pairArr = [1, 2, 3, 4, 5, 6];
+const target = 7;
+console.log("Input:", pairArr);
+console.log("Target:", target);
+console.log("Pairs:", findPairs(pairArr, target));
+
+// Q10: Move zeros to end
+console.log("\nQ10: Move Zeros to End");
+function moveZeros(arr) {
+    const nonZeros = arr.filter(x => x !== 0);
+    const zeros = arr.filter(x => x === 0);
+    return [...nonZeros, ...zeros];
+}
+const withZeros = [0, 1, 0, 3, 12];
+console.log("Input:", withZeros);
+console.log("Output:", moveZeros(withZeros));
+
+// Q11: Find most frequent element
+console.log("\nQ11: Most Frequent Element");
+function mostFrequent(arr) {
+    const freq = {};
+    let maxCount = 0;
+    let result = arr[0];
+    
+    for (let num of arr) {
+        freq[num] = (freq[num] || 0) + 1;
+        if (freq[num] > maxCount) {
+            maxCount = freq[num];
+            result = num;
+        }
+    }
+    return result;
+}
+const freqArr = [1, 3, 2, 3, 4, 3, 5];
+console.log("Input:", freqArr);
+console.log("Most Frequent:", mostFrequent(freqArr));
+
+// Q12: Check if array is sorted
+console.log("\nQ12: Check if Sorted");
+function isSorted(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) return false;
+    }
+    return true;
+}
+console.log("[1,2,3,4] is sorted:", isSorted([1, 2, 3, 4]));
+console.log("[1,3,2,4] is sorted:", isSorted([1, 3, 2, 4]));
+
+// Q13: Array difference
+console.log("\nQ13: Array Difference");
+function arrayDiff(arr1, arr2) {
+    return arr1.filter(x => !arr2.includes(x));
+}
+const diff1 = [1, 2, 3, 4, 5];
+const diff2 = [3, 4, 5, 6];
+console.log("Array 1:", diff1);
+console.log("Array 2:", diff2);
+console.log("Difference:", arrayDiff(diff1, diff2));
+
+// Q14: Group by property
+console.log("\nQ14: Group By Property");
+const people = [
+    { name: "John", age: 25 },
+    { name: "Jane", age: 25 },
+    { name: "Bob", age: 30 }
+];
+function groupBy(arr, key) {
+    return arr.reduce((acc, obj) => {
+        const keyValue = obj[key];
+        if (!acc[keyValue]) acc[keyValue] = [];
+        acc[keyValue].push(obj);
+        return acc;
+    }, {});
+}
+console.log("Input:", people);
+console.log("Grouped by age:", groupBy(people, "age"));
+
+// Q15: Binary search
+console.log("\nQ15: Binary Search");
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+const searchArr = [1, 3, 5, 7, 9, 11];
+console.log("Array:", searchArr);
+console.log("Search for 7:", binarySearch(searchArr, 7));
+console.log("Search for 6:", binarySearch(searchArr, 6));
+
+console.log("\n=== ADVANCED CONCEPTS ===\n");
+
+// Spread operator
+console.log("Spread Operator:");
+const arr7 = [1, 2, 3];
+const arr8 = [...arr7, 4, 5];
+console.log("Original:", arr7);
+console.log("Spread:", arr8);
+
+// Destructuring
+console.log("\nDestructuring:");
+const [first1, second, ...rest] = [1, 2, 3, 4, 5];
+console.log("first:", first1, "second:", second, "rest:", rest);
+
+// Array.from with mapping
+console.log("\nArray.from with mapping:");
+const range = Array.from({ length: 5 }, (_, i) => i + 1);
+console.log("Range 1-5:", range);
+
+// Multi-dimensional arrays
+console.log("\nMulti-dimensional Array:");
+const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log("Matrix:", matrix);
+console.log("Element [1][2]:", matrix[1][2]);
+
+console.log("\n=== COMPLETED ===");
