@@ -3,6 +3,8 @@
 let a = [1,2,3];
 let b = [2,3,4,5];
 
-let result = [];
+let result = [...a,...b];
 
-console.log(...a,...b);
+let resultwithnorepeat=[...new Set([...a,...b])];
+
+console.log(result);
