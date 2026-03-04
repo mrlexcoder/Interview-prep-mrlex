@@ -9,3 +9,4 @@ const obj1 ={
 console.log(obj1.address?.age);
 
 console.log(obj1.profile.name)
+
