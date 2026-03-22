@@ -55,3 +55,16 @@ What is input?
 What is expected output?
 
 What steps required?
+
+
+
+
+
+
+gemini ai
+
+whisk ai image generate 
+
+
+speechma ai --audio 
+gok ai mkae char to video 
